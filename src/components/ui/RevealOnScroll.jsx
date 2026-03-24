@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef, ReactNode } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const RevealOnScroll = ({ children, className = "", delay = 0, direction = "up" }) => {
   const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
