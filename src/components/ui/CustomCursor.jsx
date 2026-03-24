@@ -28,11 +28,11 @@ const CustomCursor = () => {
   return (
     <>
       <div 
-        className={`custom-cursor hidden md:block ${isHovering ? 'scale-[2.5] bg-teal-400/50' : 'scale-100'}`}
+        className={`custom-cursor hidden xl:block ${isHovering ? 'scale-[2.5] bg-teal-400/50' : 'scale-100'}`}
         style={{ left: `${position.x}px`, top: `${position.y}px`, transform: `translate(-50%, -50%) ${isHovering ? 'scale(2.5)' : 'scale(1)'}` }}
       />
       <div 
-        className={`custom-cursor-ring hidden md:block ${isHovering ? 'opacity-0' : 'opacity-100'}`}
+        className={`custom-cursor-ring hidden xl:block ${isHovering ? 'opacity-0' : 'opacity-100'}`}
         style={{ left: `${position.x}px`, top: `${position.y}px`, transform: `translate(-50%, -50%)` }}
       />
     </>

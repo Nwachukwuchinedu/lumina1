@@ -12,16 +12,16 @@ const TrustCompliance = () => {
     ];
   
     return (
-      <section className="py-20 bg-slate-50 border-y border-slate-200">
+      <section className="py-20 bg-slate-50 dark:bg-slate-900/30 border-y border-slate-200 dark:border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8">
             {items.map((item, idx) => (
-              <RevealOnScroll key={idx} delay={idx * 100} className="flex flex-col items-center text-center">
-                <div className="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center mb-4 border border-slate-100">
+              <RevealOnScroll key={idx} delay={idx * 50} className="flex flex-col items-center text-center">
+                <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-white dark:bg-slate-800 shadow-sm flex items-center justify-center mb-4 border border-slate-100 dark:border-slate-800 flex-shrink-0">
                   {item.icon}
                 </div>
-                <h4 className="text-sm font-bold text-slate-900 mb-2">{item.title}</h4>
-                <p className="text-[11px] text-slate-500 leading-tight px-2">{item.desc}</p>
+                <h4 className="text-xs md:text-sm font-bold text-slate-900 dark:text-white mb-2">{item.title}</h4>
+                <p className="text-[10px] md:text-[11px] text-slate-500 dark:text-slate-400 leading-tight px-1">{item.desc}</p>
               </RevealOnScroll>
             ))}
           </div>
