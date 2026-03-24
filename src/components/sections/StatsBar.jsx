@@ -1,0 +1,68 @@
+import React, { useState, useEffect, useRef } from 'react';
+
+const AnimatedCounter = ({ end, duration = 2000, suffix = "" }) => {
+  const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    let start = 0;
+    const increment = end / (duration / 16);
+    const timer = setInterval(() => {
+      start += increment;
+      if (start >= end) {
+        setCount(end);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(start));
+      }
+    }, 16);
+
+    return () => clearInterval(timer);
+  }, [isVisible, end, duration]);
+
+  return <span ref={ref}>{count.toLocaleString()}{suffix}</span>;
+};
+
+const StatsBar = () => {
+  const stats = [
+    { label: "Verified Patients", value: 50000, suffix: "+" },
+    { label: "Avg. Approval Time", value: 2, suffix: " Hours" },
+    { label: "Member Satisfaction", value: 98, suffix: "%" },
+    { label: "States Available", value: 40, suffix: "" },
+  ];
+
+  return (
+    <div className="w-full bg-slate-950 py-12 border-y border-slate-800">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          {stats.map((stat, idx) => (
+            <div key={idx} className="text-center">
+              <div className="text-3xl md:text-4xl font-black text-teal-400 tracking-tighter mb-2">
+                <AnimatedCounter end={stat.value} suffix={stat.suffix} />
+              </div>
+              <div className="text-sm font-bold text-slate-500 uppercase tracking-widest">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default StatsBar;

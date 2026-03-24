@@ -1,6 +1,21 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 
 const Button = ({ children, variant = 'primary', className = '', icon, ...props }) => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const buttonRef = useRef(null);
+
+  const handleMouseMove = (e) => {
+    const { clientX, clientY } = e;
+    const { left, top, width, height } = buttonRef.current.getBoundingClientRect();
+    const x = (clientX - (left + width / 2)) * 0.2;
+    const y = (clientY - (top + height / 2)) * 0.2;
+    setPosition({ x, y });
+  };
+
+  const handleMouseLeave = () => {
+    setPosition({ x: 0, y: 0 });
+  };
+
   const baseStyle = "inline-flex items-center justify-center font-semibold transition-all duration-500 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed group relative overflow-hidden";
   
   const variants = {
@@ -11,7 +26,17 @@ const Button = ({ children, variant = 'primary', className = '', icon, ...props 
   };
 
   return (
-    <button className={`${baseStyle} ${variants[variant]} ${className}`} {...props}>
+    <button 
+      ref={buttonRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className={`${baseStyle} ${variants[variant]} ${className}`} 
+      style={{ transform: `translate3d(${position.x}px, ${position.y}px, 0)` }}
+      {...props}
+    >
+      {/* Button Glow Effect */}
+      <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none blur-xl"></div>
+      
       <span className="relative z-10 flex items-center">
         {children}
         {icon && <span className="ml-2 transform group-hover:translate-x-1 transition-transform duration-300">{icon}</span>}
