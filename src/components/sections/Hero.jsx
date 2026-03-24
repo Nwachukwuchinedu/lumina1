@@ -11,7 +11,7 @@ const Hero = () => {
           <div className="absolute top-[10%] left-[20%] w-[500px] h-[500px] rounded-full bg-teal-200/40 mix-blend-multiply filter blur-[100px] animate-blob"></div>
           <div className="absolute top-[20%] right-[10%] w-[400px] h-[400px] rounded-full bg-emerald-200/40 mix-blend-multiply filter blur-[120px] animate-blob animation-delay-2000"></div>
           <div className="absolute bottom-[-10%] left-[30%] w-[600px] h-[600px] rounded-full bg-cyan-200/40 mix-blend-multiply filter blur-[130px] animate-blob animation-delay-4000"></div>
-          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-5 brightness-100 contrast-150 mix-blend-overlay"></div>
+          <div className="absolute inset-0 bg-noise opacity-5 brightness-100 contrast-150 mix-blend-overlay"></div>
         </div>
   
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
