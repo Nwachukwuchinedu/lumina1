@@ -58,32 +58,32 @@ const PricingSelector = () => {
                 key={idx} 
                 className={`relative rounded-[2.5rem] p-10 border transition-all duration-500 ${
                   plan.featured 
-                    ? 'border-teal-500 bg-slate-950 text-white shadow-2xl scale-[1.05] z-10' 
-                    : 'border-slate-200 bg-white text-slate-900'
+                    ? 'border-teal-500 bg-white ring-8 ring-teal-500/5 text-slate-900 shadow-2xl scale-[1.05] z-10' 
+                    : 'border-slate-100 bg-white/50 text-slate-900'
                 }`}
               >
-                {plan.featured && <div className="absolute top-6 right-6 bg-teal-500 text-slate-950 text-[10px] font-black px-3 py-1 rounded-full uppercase">Most Popular</div>}
+                {plan.featured && <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-teal-500 text-white text-[10px] font-black px-4 py-1 rounded-full uppercase shadow-lg">Most Popular</div>}
                 
                 <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-                <p className={plan.featured ? "text-slate-400 mb-8" : "text-slate-500 mb-8"}>{plan.desc}</p>
+                <p className="text-slate-500 mb-8">{plan.desc}</p>
                 
                 <div className="mb-8">
                   <span className="text-6xl font-black tracking-tighter transition-all duration-300">${getCurrentPrice(plan)}</span>
-                  <span className={plan.featured ? "text-slate-400 ml-2" : "text-slate-500 ml-2"}>/ month</span>
+                  <span className="text-slate-400 ml-2">/ month</span>
                 </div>
   
                 <ul className="space-y-4 mb-10">
                   {["Online doctor review", "Free discreet shipping", "24/7 care messaging", "Cancel anytime"].map((feat, i) => (
                     <li key={i} className="flex items-center gap-3">
                       <span className="text-teal-500"><Check size={18} /></span>
-                      <span className="text-sm">{feat}</span>
+                      <span className="text-sm font-medium">{feat}</span>
                     </li>
                   ))}
                 </ul>
   
                 <Button 
                   variant={plan.featured ? "primary" : "secondary"} 
-                  className="w-full text-lg" 
+                  className="w-full text-lg shadow-xl shadow-teal-500/10" 
                   icon={<ArrowRight size={20} />}
                 >
                   Select Plan

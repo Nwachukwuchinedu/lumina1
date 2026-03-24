@@ -48,15 +48,15 @@ const StatsBar = () => {
   ];
 
   return (
-    <div className="w-full bg-slate-950 py-12 border-y border-slate-800">
+    <div className="w-full bg-white py-12 border-y border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, idx) => (
-            <div key={idx} className="text-center">
-              <div className="text-3xl md:text-4xl font-black text-teal-400 tracking-tighter mb-2">
+            <div key={idx} className="text-center group">
+              <div className="text-3xl md:text-4xl font-black text-slate-900 group-hover:text-teal-500 transition-colors tracking-tighter mb-2">
                 <AnimatedCounter end={stat.value} suffix={stat.suffix} />
               </div>
-              <div className="text-sm font-bold text-slate-500 uppercase tracking-widest">{stat.label}</div>
+              <div className="text-sm font-bold text-slate-400 uppercase tracking-widest">{stat.label}</div>
             </div>
           ))}
         </div>

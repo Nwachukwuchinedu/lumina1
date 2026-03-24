@@ -21,19 +21,19 @@ const BentoFeatures = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[250px]">
             
             {/* Card 1: Large Feature (Staggered Delay) */}
-            <RevealOnScroll delay={100} className="md:col-span-2 md:row-span-2 relative rounded-[2.5rem] overflow-hidden bg-slate-950 group">
+            <RevealOnScroll delay={100} className="md:col-span-2 md:row-span-2 relative rounded-[2.5rem] overflow-hidden bg-teal-50 border border-teal-100 group">
               <img 
                 src="https://images.unsplash.com/photo-1576602976047-174e57a47881?auto=format&fit=crop&q=80&w=1200" 
                 alt="Prescription medication" 
-                className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-700 ease-out"
+                className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-105 transition-transform duration-700 ease-out"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent opacity-80"></div>
               <div className="absolute bottom-0 left-0 p-8 md:p-12 w-full">
-                <div className="w-14 h-14 bg-teal-500 rounded-2xl flex items-center justify-center text-slate-950 mb-6 shadow-lg shadow-teal-500/30">
+                <div className="w-14 h-14 bg-teal-500 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-teal-500/30">
                   <Pill size={28} />
                 </div>
-                <h3 className="text-3xl font-bold text-white mb-3">Daily Prescriptions</h3>
-                <p className="text-slate-300 max-w-md text-lg">Seamlessly transfer existing prescriptions or start new ones with our certified medical team. Delivered automatically.</p>
+                <h3 className="text-3xl font-bold text-slate-900 mb-3">Daily Prescriptions</h3>
+                <p className="text-slate-600 max-w-md text-lg">Seamlessly transfer existing prescriptions or start new ones with our certified medical team. Delivered automatically.</p>
               </div>
             </RevealOnScroll>
   
