@@ -9,10 +9,9 @@ const Navbar = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
-    // Check initial user preference
-    if (document.documentElement.classList.contains('dark')) {
-      setIsDarkMode(true);
-    }
+    // Sync theme on mount
+    const hasDarkClass = document.documentElement.classList.contains('dark');
+    setIsDarkMode(hasDarkClass);
 
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);

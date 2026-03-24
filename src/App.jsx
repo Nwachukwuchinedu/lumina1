@@ -59,7 +59,7 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-950 font-sans text-slate-900 dark:text-slate-100 selection:bg-teal-400/30 selection:text-teal-900 overflow-x-hidden">
+    <div className="min-h-screen bg-white dark:bg-[#0f172a] font-sans text-slate-900 dark:text-slate-100 selection:bg-teal-400/30 selection:text-teal-900 overflow-x-hidden">
       <CustomCursor />
       <Navbar />
 

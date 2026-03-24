@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 /* --- CUSTOM STYLES FOR ANIMATIONS --- */
 @theme {
@@ -131,29 +132,12 @@ body, div, section, header, footer, a, span, h1, h2, h3, h4, p {
   transition-duration: 300ms;
 }
 
-.dark {
-  background-color: #0f172a;
-  color: #f1f5f9;
-}
-
 .dark .bg-white {
   background-color: #1e293b;
 }
 
 .dark .bg-slate-50 {
   background-color: #0f172a;
-}
-
-.dark .text-slate-900, .dark .text-slate-950 {
-  color: #f8fafc;
-}
-
-.dark .text-slate-600 {
-  color: #94a3b8;
-}
-
-.dark .border-slate-200, .dark .border-slate-100 {
-  border-color: #334155;
 }
 
 body {
